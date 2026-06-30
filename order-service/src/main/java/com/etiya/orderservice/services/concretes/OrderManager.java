@@ -1,6 +1,8 @@
 package com.etiya.orderservice.services.concretes;
 
 import com.etiya.orderservice.entities.Order;
+import com.etiya.orderservice.events.OrderCreatedEvent;
+import com.etiya.orderservice.messaging.OrderProducer;
 import com.etiya.orderservice.repositories.OrderRepository;
 import com.etiya.orderservice.services.abstracts.OrderService;
 import com.etiya.orderservice.services.dtos.requests.CreateOrderRequest;
@@ -24,9 +26,11 @@ import java.util.List;
 public class OrderManager implements OrderService {
 
     private final OrderRepository orderRepository;
+    private final OrderProducer orderProducer;
 
-    public OrderManager(OrderRepository orderRepository) {
+    public OrderManager(OrderRepository orderRepository, OrderProducer orderProducer) {
         this.orderRepository = orderRepository;
+        this.orderProducer = orderProducer;
     }
 
     @Override
@@ -40,6 +44,16 @@ public class OrderManager implements OrderService {
         order.setAddress(request.getAddress());
 
         Order saved = orderRepository.save(order);
+
+        // OrderCreated: notify product-service over Kafka with the full order detail.
+        orderProducer.publishOrderCreated(new OrderCreatedEvent(
+                saved.getId(),
+                saved.getCustomerId(),
+                saved.getProductId(),
+                saved.getQuantity(),
+                saved.getUnitPrice(),
+                saved.getTotalPrice(),
+                saved.getAddress()));
 
         return new CreatedOrderResponse(
                 saved.getId(),

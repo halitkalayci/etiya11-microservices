@@ -1,6 +1,8 @@
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\order-service\src\main\java\com\etiya\orderservice\controllers\GlobalExceptionHandler.java
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\order-service\src\main\java\com\etiya\orderservice\controllers\OrdersController.java
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\order-service\src\main\java\com\etiya\orderservice\entities\Order.java
+C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\order-service\src\main\java\com\etiya\orderservice\events\OrderCreatedEvent.java
+C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\order-service\src\main\java\com\etiya\orderservice\messaging\OrderProducer.java
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\order-service\src\main\java\com\etiya\orderservice\OrderServiceApplication.java
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\order-service\src\main\java\com\etiya\orderservice\repositories\OrderRepository.java
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\order-service\src\main\java\com\etiya\orderservice\services\abstracts\OrderService.java

@@ -4,6 +4,15 @@ server:
 spring:
   application:
     name: order-service
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+      bindings:
+        # Producer: StreamBridge sends OrderCreatedEvent here -> Kafka topic "order-created"
+        orderCreated-out-0:
+          destination: order-created
 
 management:
   endpoints:

@@ -1,6 +1,8 @@
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\product-service\src\main\java\com\etiya\productservice\controllers\GlobalExceptionHandler.java
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\product-service\src\main\java\com\etiya\productservice\controllers\ProductsController.java
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\product-service\src\main\java\com\etiya\productservice\entities\Product.java
+C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\product-service\src\main\java\com\etiya\productservice\events\OrderCreatedEvent.java
+C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\product-service\src\main\java\com\etiya\productservice\messaging\OrderEventConsumer.java
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\product-service\src\main\java\com\etiya\productservice\ProductServiceApplication.java
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\product-service\src\main\java\com\etiya\productservice\repositories\ProductRepository.java
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\product-service\src\main\java\com\etiya\productservice\services\abstracts\ProductService.java

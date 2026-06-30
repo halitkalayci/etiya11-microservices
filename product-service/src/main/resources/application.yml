@@ -4,6 +4,18 @@ server:
 spring:
   application:
     name: product-service
+  cloud:
+    function:
+      definition: orderCreated
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+      bindings:
+        # Consumer: "orderCreated" function reads Kafka topic "order-created"
+        orderCreated-in-0:
+          destination: order-created
+          group: product-service
 
 management:
   endpoints:
