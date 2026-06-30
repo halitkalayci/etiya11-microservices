@@ -1,0 +1,22 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: order-service
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true # kendini ayağa kalktığın an eurekaya tanıt
+    fetch-registry: true # istenildiğinde diğer servislerin bilgisini çek
+  instance:
+    instance-id: ${spring.application.name}:${random.uuid}
+    prefer-ip-address: true
