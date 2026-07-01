@@ -1,5 +1,4 @@
 com\etiya\orderservice\repositories\OrderRepository.class
-com\etiya\orderservice\messaging\OrderProducer.class
 com\etiya\orderservice\entities\Order.class
 com\etiya\orderservice\services\dtos\responses\UpdatedOrderResponse.class
 com\etiya\orderservice\events\OrderCreatedEvent.class

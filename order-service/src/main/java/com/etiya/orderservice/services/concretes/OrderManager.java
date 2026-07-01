@@ -2,7 +2,7 @@ package com.etiya.orderservice.services.concretes;
 
 import com.etiya.orderservice.entities.Order;
 import com.etiya.orderservice.events.OrderCreatedEvent;
-import com.etiya.orderservice.messaging.OrderProducer;
+import com.etiya.orderservice.outbox.OutboxService;
 import com.etiya.orderservice.repositories.OrderRepository;
 import com.etiya.orderservice.services.abstracts.OrderService;
 import com.etiya.orderservice.services.dtos.requests.CreateOrderRequest;
@@ -25,12 +25,15 @@ import java.util.List;
 @Service
 public class OrderManager implements OrderService {
 
-    private final OrderRepository orderRepository;
-    private final OrderProducer orderProducer;
+    /** Output binding the OrderCreated message is relayed to (topic mapped in application.yml). */
+    private static final String ORDER_CREATED_BINDING = "orderCreated-out-0";
 
-    public OrderManager(OrderRepository orderRepository, OrderProducer orderProducer) {
+    private final OrderRepository orderRepository;
+    private final OutboxService outboxService;
+
+    public OrderManager(OrderRepository orderRepository, OutboxService outboxService) {
         this.orderRepository = orderRepository;
-        this.orderProducer = orderProducer;
+        this.outboxService = outboxService;
     }
 
     @Override
@@ -45,15 +48,21 @@ public class OrderManager implements OrderService {
 
         Order saved = orderRepository.save(order);
 
-        // OrderCreated: notify product-service over Kafka with the full order detail.
-        orderProducer.publishOrderCreated(new OrderCreatedEvent(
-                saved.getId(),
-                saved.getCustomerId(),
-                saved.getProductId(),
-                saved.getQuantity(),
-                saved.getUnitPrice(),
-                saved.getTotalPrice(),
-                saved.getAddress()));
+        // Transactional Outbox: queue OrderCreated in the outbox table instead of publishing to
+        // Kafka inline. The polling relay (OutboxMessageRelay) forwards it to product-service.
+        outboxService.record(
+                "Order",
+                String.valueOf(saved.getId()),
+                "OrderCreated",
+                ORDER_CREATED_BINDING,
+                new OrderCreatedEvent(
+                        saved.getId(),
+                        saved.getCustomerId(),
+                        saved.getProductId(),
+                        saved.getQuantity(),
+                        saved.getUnitPrice(),
+                        saved.getTotalPrice(),
+                        saved.getAddress()));
 
         return new CreatedOrderResponse(
                 saved.getId(),
