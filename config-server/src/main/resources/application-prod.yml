@@ -1,0 +1,7 @@
+# prod: git'ten her istekte güncel konfigürasyon çekilir.
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          force-pull: true

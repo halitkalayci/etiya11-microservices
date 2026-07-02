@@ -1,2 +1,6 @@
 *.class
 **/*.class
+
+# Maven build output
+target/
+**/target/

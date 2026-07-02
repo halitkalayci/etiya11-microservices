@@ -1,0 +1,15 @@
+# eureka-server ortak (tüm profiller) konfigürasyonu.
+# Config Server tarafından servis adına göre (search-paths: configs/{application}) sunulur.
+server:
+  port: 8761
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

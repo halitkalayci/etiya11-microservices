@@ -1,0 +1,22 @@
+server:
+  port: 8888   # Spring Cloud Config'in konvansiyonel portu (gateway 8080'e taşındı)
+
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: dev
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/halitkalayci/etiya11-microservices.git
+          default-label: master   # repo master dalını kullanıyor (varsayılan 'main' değil)
+          search-paths: configs/{application}
+          clone-on-start: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

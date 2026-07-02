@@ -1,0 +1,8 @@
+# dev (yerel geliştirme): her istekte git'ten güncel çekme kapalı,
+# böylece yerel çalışma hızlanır. Değişiklikleri görmek için config server yeniden başlatılır.
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          force-pull: false

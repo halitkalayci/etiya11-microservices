@@ -1,0 +1,31 @@
+# product-service ortak (tüm profiller) konfigürasyonu.
+server:
+  port: 0
+
+spring:
+  cloud:
+    function:
+      definition: orderCreated
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+      bindings:
+        # Consumer: "orderCreated" function reads Kafka topic "order-created"
+        orderCreated-in-0:
+          destination: order-created
+          group: product-service
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+eureka:
+  client:
+    register-with-eureka: true # kendini ayağa kalktığın an eurekaya tanıt
+    fetch-registry: true # istenildiğinde diğer servislerin bilgisini çek
+  instance:
+    instance-id: ${spring.application.name}:${random.uuid}
+    prefer-ip-address: true
