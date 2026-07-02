@@ -11,6 +11,8 @@ import com.etiya.productservice.services.dtos.responses.GetAllProductsResponse;
 import com.etiya.productservice.services.dtos.responses.GetByIdProductResponse;
 import com.etiya.productservice.services.dtos.responses.UpdatedProductResponse;
 import com.etiya.productservice.services.exceptions.BusinessException;
+
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,6 +31,7 @@ public class ProductManager implements ProductService {
     }
 
     @Override
+    //@PreAuthorize("hasRole('ADMIN')")
     public CreatedProductResponse add(CreateProductRequest request) {
         Product product = new Product();
         product.setName(request.getName());
