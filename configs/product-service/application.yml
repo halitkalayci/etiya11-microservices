@@ -3,6 +3,12 @@ server:
   port: 0
 
 spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # Keycloak realm'i: token imzaları bu issuer'ın JWKS endpoint'inden doğrulanır.
+          issuer-uri: http://localhost:8090/realms/etiya-crm-project
   cloud:
     function:
       definition: orderCreated

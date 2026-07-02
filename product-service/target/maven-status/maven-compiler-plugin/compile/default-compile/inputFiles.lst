@@ -5,6 +5,8 @@ C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\product-service\sr
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\product-service\src\main\java\com\etiya\productservice\messaging\OrderEventConsumer.java
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\product-service\src\main\java\com\etiya\productservice\ProductServiceApplication.java
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\product-service\src\main\java\com\etiya\productservice\repositories\ProductRepository.java
+C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\product-service\src\main\java\com\etiya\productservice\security\KeycloakRealmRoleConverter.java
+C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\product-service\src\main\java\com\etiya\productservice\security\SecurityConfig.java
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\product-service\src\main\java\com\etiya\productservice\services\abstracts\ProductService.java
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\product-service\src\main\java\com\etiya\productservice\services\concretes\ProductManager.java
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\product-service\src\main\java\com\etiya\productservice\services\dtos\requests\CreateProductRequest.java

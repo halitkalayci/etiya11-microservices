@@ -50,6 +50,12 @@
         </dependency>
 
 
+        <!-- JWT-based authorization: validates Keycloak-issued tokens -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+        </dependency>
+
         <!-- Spring Cloud Stream + Kafka binder (event publishing) -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

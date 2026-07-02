@@ -9,6 +9,8 @@ C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\order-service\src\
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\order-service\src\main\java\com\etiya\orderservice\outbox\OutboxService.java
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\order-service\src\main\java\com\etiya\orderservice\outbox\OutboxStatus.java
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\order-service\src\main\java\com\etiya\orderservice\repositories\OrderRepository.java
+C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\order-service\src\main\java\com\etiya\orderservice\security\KeycloakRealmRoleConverter.java
+C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\order-service\src\main\java\com\etiya\orderservice\security\SecurityConfig.java
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\order-service\src\main\java\com\etiya\orderservice\services\abstracts\OrderService.java
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\order-service\src\main\java\com\etiya\orderservice\services\concretes\OrderManager.java
 C:\Users\PC1\Desktop\Projects\Education\etiya11-microservices\order-service\src\main\java\com\etiya\orderservice\services\dtos\requests\CreateOrderRequest.java
