@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: order-service
+  profiles:
+    active: test
 
   # H2 in-memory database backing the Transactional Outbox table.
   datasource:
@@ -49,8 +51,6 @@ management:
 
 eureka:
   client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
     register-with-eureka: true # kendini ayağa kalktığın an eurekaya tanıt
     fetch-registry: true # istenildiğinde diğer servislerin bilgisini çek
   instance:
